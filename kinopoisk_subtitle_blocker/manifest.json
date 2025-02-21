@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Kinopoisk Subtitle Blocker",
+  "version": "1.0",
+  "description": "Automatically hides forced subtitles on Kinopoisk.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://www.kinopoisk.ru/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.kinopoisk.ru/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+}
